@@ -1,13 +1,16 @@
-
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home({ users }) {
+  React.useEffect(() => {
+    console.log(users)
+  }, [users])
+
+  console.log(users)
 
   const openNewWindow = () => {
-    window.myAPI.openNewTable();
-  };
+    window.myAPI.openNewTable()
+  }
   return (
     <div>
       <h1>Пользователи</h1>
@@ -29,11 +32,11 @@ function Home({ users }) {
           ))}
         </tbody>
       </table>
-      <Link to={'/'}>
-        <button onClick={openNewWindow}>Добавить пользователя</button>
-        </Link>
+      <Link to={'/new-window'}>
+        <button onClick={() => {}}>Добавить пользователя</button>
+      </Link>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
